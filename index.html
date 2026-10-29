@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#fff0f7">
+<title>Сайхнаад зориулсан тоглоом 💗</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="screen active" id="intro">
+  <div class="panel">
+    <div class="eyebrow">Зөвхөн Сайхнаад 💌</div>
+    <div class="hero">🐻💗</div>
+    <h1>Сайн уу, миний хайр?</h1>
+    <p>Надад хэдэн секунд зарцуулаарай 🥹</p>
+    <button class="btn" id="startBtn">Эхлүүлэх 💕</button>
+  </div>
+</section>
+
+<section class="screen" id="quiz">
+  <div class="panel">
+    <div class="eyebrow">1-р үе · Асуулт 👀</div>
+    <div class="hero" id="quizHero">🥺</div>
+    <h1 id="questionTitle">Чи надад хайртай юу?</h1>
+    <p class="small" id="questionSub">Зөв answer-аа бодоорой хэхэ 🤭</p>
+
+    <div class="catwrap hidden" id="catWrap">
+      <svg viewBox="0 0 260 220" aria-label="Cute angry cat image" role="img">
+        <defs>
+          <linearGradient id="catbg" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fff3f8"/>
+            <stop offset="100%" stop-color="#fff8e8"/>
+          </linearGradient>
+        </defs>
+        <rect x="6" y="6" width="248" height="208" rx="28" fill="url(#catbg)" stroke="#f4cad7" stroke-width="2"/>
+        <g transform="translate(0,3)">
+          <ellipse cx="130" cy="124" rx="76" ry="60" fill="#ffd2a8" stroke="#d7a173" stroke-width="3"/>
+          <path d="M78 86 96 42 121 82" fill="#ffd2a8" stroke="#d7a173" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M182 86 164 42 139 82" fill="#ffd2a8" stroke="#d7a173" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M87 77 97 57 109 79" fill="#ffb4c8" opacity=".8"/>
+          <path d="M173 77 163 57 151 79" fill="#ffb4c8" opacity=".8"/>
+          <ellipse cx="101" cy="121" rx="14" ry="16" fill="#fff"/>
+          <ellipse cx="159" cy="121" rx="14" ry="16" fill="#fff"/>
+          <circle cx="101" cy="123" r="7" fill="#4a2f3b"/>
+          <circle cx="159" cy="123" r="7" fill="#4a2f3b"/>
+          <path d="M84 108 110 102" stroke="#4a2f3b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M176 108 150 102" stroke="#4a2f3b" stroke-width="5" stroke-linecap="round"/>
+          <path d="M130 130 121 141 139 141Z" fill="#ff8baa"/>
+          <path d="M117 154 Q130 145 143 154" stroke="#4a2f3b" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M71 142 32 138" stroke="#c48a60" stroke-width="3" stroke-linecap="round"/>
+          <path d="M71 151 28 154" stroke="#c48a60" stroke-width="3" stroke-linecap="round"/>
+          <path d="M189 142 228 138" stroke="#c48a60" stroke-width="3" stroke-linecap="round"/>
+          <path d="M189 151 232 154" stroke="#c48a60" stroke-width="3" stroke-linecap="round"/>
+          <text x="130" y="194" text-anchor="middle" font-size="22" font-weight="800" fill="#b4517b">Худлаа ярь 😾</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="playfield" id="playfield">
+      <button class="btn yes" id="yesBtn">Тийм 💗</button>
+      <button class="btn secondary nope" id="noBtn">Үгүй 🙈</button>
+    </div>
+
+    <button class="btn secondary question-next hidden" id="retryQuestionBtn">Асуулт руу буцах ↩</button>
+    <button class="btn question-next hidden" id="nextQuestionBtn">Дараагийн асуулт ➜</button>
+  </div>
+</section>
+
+<section class="screen" id="catch">
+  <div class="panel">
+    <div class="eyebrow">2-р үе · Миний зүрхийг бариарай</div>
+    <div class="hero">💘</div>
+    <h1>5 зүрх барь 💗</h1>
+    <div class="progress"><div id="bar"></div></div>
+    <p id="count" style="font-weight:800;margin:6px">0 / 5 💗</p>
+    <div class="hearts" id="heartArena">
+      <button class="heart" id="heartBtn" aria-label="Зүрх барих">💗</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="gifts">
+  <div class="panel">
+    <div class="eyebrow">3-р үе · Нууц бэлгүүд 🎁</div>
+    <div class="hero">🎀</div>
+    <h1>3 бэлгийн нэгийг сонго</h1>
+    <p>Нэг нэгээр нь нээгээрэй 🎁</p>
+    <div class="gift-grid" id="giftGrid"></div>
+    <div class="status-pill" id="giftStatus">0 / 3 бэлэг нээгдсэн</div>
+    <p class="small" id="giftHint">Нэгийг нь дараад surprise-аа үзээрэй 💌</p>
+    <button class="btn hidden" id="finalBtn">Сүүлчийн зурвас 💞</button>
+  </div>
+</section>
+
+<section class="screen" id="final">
+  <div class="panel">
+    <div class="eyebrow">Амжилттай давлаа 💌</div>
+    <div class="hero">💞</div>
+    <h1>Хайрт чамдаа</h1>
+    <div class="final-letter">Хоёр өөр цонхны цаана
+Нэг л үдэш өөр өөр өнгөөр бууна.
+Нэг талд нь бороо шөнөжин шивэрч,
+Нөгөө талд нь одод аниргүй түгнэ.
+
+Хүний нүдэнд үл үзэгдэх
+Хурууны үзүүрээс алсын хол үргэлжлэх
+Нарийхан улаан утас байдаг гэдэг.
+Хаана хүрдгийг нь хэн ч мэдэхгүй ч
+Хааяа нэг татагдахыг нь мэдэрдэг гэдэг.
+
+Нэг үзүүрт нь өглөө бүрийн яаруу алхам,
+Нөгөөд нь үдшийн ядарсан амьсгаа.
+Хоёр өөр амьдралын дундуур сунасан тэр утсанд
+Хэлж амжаагүй үгс, тэвчиж өнгөрүүлсэн өдрүүд
+Хэнд ч үл үзэгдэх зангилаа болон үлдэнэ.
+
+Зарим шөнө тэр утас чангарч,
+Зай улам холдсон мэт санагдана.
+Заримдаа нөгөө үзүүрээс чимээ ирэхгүй ч
+Атгасан гарын алганд
+Өчүүхэн төдий дулаан үлдэнэ.
+
+Холын бараа бүдгэрлээ гээд
+Хүрэх зам нь үгүй болчихдоггүй.
+Харанхуйд юу ч харагдахгүй байлаа гээд
+Хоёр гарын хоорондох утас
+Хаашаа ч алга болчихдоггүй.
+
+Тийнхүү өдөр өдрөөр утас сунаж,
+Тэсэж өнгөрүүлсэн бүхэн түүнд шингэнэ.
+Хэн нэгэнд эгэлхэн санагдах маргаашийн төлөө
+Хэчнээн олон өдөр чимээгүйхэн өнгөрнө.
+
+Нэг л өдөр тэр утасны хоёр үзүүр
+Нэгэн жижигхэн өрөөнд учрах биз.
+Цонхны цаана өглөөний нар мандаж,
+Ширээн дээр хоёр аяганаас уур савсах биз.
+
+Нэг нь нойрмоглон цонх ширтэж,
+Нөгөө нь цайгаа үлээн сууна.
+Тэнгэрт онцгой зүйл тохиолдохгүй,
+Тэр өдөр эгэл өдрүүдийн адил эхэлнэ.
+
+Гэвч хоёр аяганы хоорондох
+Тэр өчүүхэн зайд
+Хэчнээн олон шөнө,
+Хэчнээн урт зам багтсаныг
+Хэн ч анзаарахгүй.
+
+Магадгүй тэр үед
+Өнөөдрийн энэ өдрүүд бүдгэрсэн байх.
+Нэгэн цагт энгийн нэг тэврэлт хүртэл
+Ирээдүйн хамгийн том хүсэл байсныг
+Мартаж ч мэднэ.
+
+Хүн удаан хүлээсэн зүйлээ
+Эцэст нь өдөр тутмын амьдрал болгохдоо
+Хүлээлтийнхээ гунигийг бус,
+Хүрч ирсэн амар амгаланг нь л мэдэрдэг байх.
+
+Харин нэгэн бороотой үдэш
+Хуруунд нь үл мэдэг зүйл тээглэх шиг болоход
+Хэсэгхэн зуур чимээгүй инээмсэглээд
+Хэчнээн холоос ирснээ санах биз.
+
+Тэгээд л ахиад эгэл өдрүүд үргэлжилнэ.
+Өглөөний цай, угаалгүй үлдсэн аяга,
+Орой хэн нь түрүүлж гэртээ ирэх тухай яриа,
+Урьд нь зөвхөн төсөөлж явсан амьдрал
+Улам бүр жирийн, улам бүр дотно болно.
+
+Тэр үед өнөөх утас
+Хаашаа ч алга болоогүй байх биз.
+
+Зүгээр л урьдынх шигээ
+Хоёр тийш татагдахаа больж,
+Хоёр үзүүрийг нь атгасан гарууд
+Анх удаа утсаар бус,
+Бие биеийнхээ илчээр дулаацах биз.</div>
+    <div class="row">
+      <button class="btn" id="replayBtn">Дахиад тоглох 🔁</button>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="giftModal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="eyebrow">Surprise opened ✨</div>
+    <h1 id="modalTitle" style="font-size:28px">🎁</h1>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="row">
+      <button class="btn secondary" id="closeModalBtn">Буцах ↩</button>
+    </div>
+  </div>
+</div>
+
+<script src="game.js" defer></script>
+</body>
+</html>
